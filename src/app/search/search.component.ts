@@ -21,12 +21,13 @@ export class SearchComponent implements OnInit {
     this.user = {};
     this.loading = true;
     this.noResults = false;
+    this.showRepoDetails = false;
 
-    this.githubService.getUser(name).subscribe(data => {
+    this.githubService.getUser(name).subscribe((data) => {
       this.noResults = false;
       this.user = data;
 
-      this.githubService.getRepos(data.repos_url).subscribe(res => {
+      this.githubService.getRepos(data.repos_url).subscribe((res) => {
         this.repos = res;
         this.loading = false;
       });
@@ -36,8 +37,9 @@ export class SearchComponent implements OnInit {
     });
   }
 
+
   getRepoDetails(user: string, repo: string){
-    this.githubService.getRepoDetails(user, repo).subscribe(res => {
+    this.githubService.getRepoDetails(user, repo).subscribe((res) => {
       this.repo = res;
       this.showRepoDetails = true;
     });

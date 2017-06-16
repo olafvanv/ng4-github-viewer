@@ -7,19 +7,9 @@
 
 <div class="results">
 
-  <div class="results__user" *ngIf="user.login && !loading">
-    <img src="{{user.avatar_url}}" class="avatar"/>
-    <h2>{{user.login}}</h2>
-  </div>
-
-  <div class="results__repos"  *ngIf="user.login && !loading">
-    <h5>Repo's:</h5>
-    <ul>
-      <li *ngFor="let repo of repos" (click)="getRepoDetails(user.login, repo.name)">
-        <span class="left">{{repo.name}}</span>
-        <span class="right">{{repo.stargazers_count | number}} <i class="fa fa-star"></i></span>
-      </li>
-    </ul>
+  <div class="results__wrapper" *ngIf="user.login && !loading && !showRepoDetails">
+    <app-results [user]="user" [repos]="repos" [getRepoDetails]="getRepoDetails"></app-results>
+    
   </div>
 
   <div class="results__loading" *ngIf="loading">
@@ -28,15 +18,6 @@
 
   <div class="results__no-results" *ngIf="noResults">
     No Results Found..
-  </div>
-
-  <div class="results__repo-details" *ngIf="showRepoDetails">
-    <h5>Repo Details:</h5>
-    Name: {{repo.name}} 
-    <br />
-    Open Issues: {{repo.open_issues}}
-    <br />
-    Total Stars: {{repo.stargazers_count}}
   </div>
 
 </div>

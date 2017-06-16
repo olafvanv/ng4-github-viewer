@@ -8,12 +8,14 @@ import { SearchComponent } from './search/search.component';
 
 import { GithubService } from './github.service';
 import { RepoComponent } from './repo/repo.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    RepoComponent
+    RepoComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
