@@ -1,9 +1,9 @@
-<div class="results__user">
+<div class="results__user" *ngIf="!showRepoDetails">
   <img src="{{user.avatar_url}}" class="avatar" />
   <h2>{{user.login}}</h2>
 </div>
 
-<div class="results__repos">
+<div class="results__repos" *ngIf="!showRepoDetails">
   <h5>Repo's:</h5>
   <ul>
     <li *ngFor="let repo of repos" (click)="getRepoDetails(user.login, repo.name)">
@@ -13,11 +13,38 @@
   </ul>
 </div>
 
-<div class="results__repo-details" *ngIf="showRepoDetails">
-    <h5>Repo Details:</h5>
-    Name: {{repo.name}} 
-    <br />
-    Open Issues: {{repo.open_issues}}
-    <br />
-    Total Stars: {{repo.stargazers_count}}
+<div class="results__user" *ngIf="showRepoDetails">
+  <img src="{{user.avatar_url}}" class="avatar" />
+  <h2>{{user.login}}/{{repo.name}}</h2>
+</div>
+
+<div class="results__repos" *ngIf="showRepoDetails">
+  <h5>Repo Details:</h5>
+
+  <div class="row">
+
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 details">
+      <i class="fa fa-arrow-circle-o-left back-btn" aria-hidden="true" title="Go Back"></i>
+    </div>
+    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 details">
+      Name: {{repo.name}}
+      <br /> Open Issues: {{repo.open_issues}}
+      <br /> Total Stars: {{repo.stargazers_count}}
+      <br /> Subscribers: {{repo.subscribers_count}}
+      <br /> Watchers: {{repo.watchers_count}}
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 details">
+      Contributors:
+      <div class="contributor" *ngFor="let contributor of contributors">
+        <img src="{{contributor.avatar_url}}"  />
+        <div class="contributor__info">
+          Name: {{contributor.login}}
+          <br>
+          Contributions: {{contributor.contributions}}
+        </div>
+      </div>
+    </div>
   </div>
+
+</div>

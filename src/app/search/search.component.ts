@@ -11,6 +11,7 @@ export class SearchComponent implements OnInit {
   user = {};
   repos = [];
   repo = {};
+  contributors = [];
   loading = false;
   noResults = false;
   showRepoDetails = false;
@@ -38,14 +39,18 @@ export class SearchComponent implements OnInit {
   }
 
 
-  getRepoDetails(user: string, repo: string){
+  getRepoDetails(user: string, repo: string) {
     this.githubService.getRepoDetails(user, repo).subscribe((res) => {
       this.repo = res;
       this.showRepoDetails = true;
+      this.githubService.getContributors(res.contributors_url).subscribe((res) => {
+        this.contributors = res;
+        console.log(res);
+      })
     });
   }
 
-  ngOnInit() {  
+  ngOnInit() {
     this.submitSearch("angular");
   }
 

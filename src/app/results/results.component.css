@@ -49,3 +49,20 @@
     padding:10px;
     box-sizing: border-box;
 }
+
+.results__repos .details{
+    text-align:left;
+    margin: 20px 0;
+}
+
+.contributor{
+    width:100%;
+    display:inline-block;
+    margin:5px 0;
+}
+
+.contributor img{
+    width:50px;
+    float:left;
+    margin-right:10px;
+}

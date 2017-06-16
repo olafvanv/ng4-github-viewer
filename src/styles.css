@@ -38,3 +38,14 @@ html, body{
     width:100%;
     text-align:center;
 }
+
+.back-btn{
+    font-size:40px;
+    color:#ccc;
+    transition:.5s ease-in-out;
+}
+.back-btn:hover{
+    cursor:pointer;
+    transform: scale(1.1);
+    color:#666;
+}
