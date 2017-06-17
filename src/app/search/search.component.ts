@@ -50,6 +50,10 @@ export class SearchComponent implements OnInit {
     });
   }
 
+  hideDetails() {
+    this.showRepoDetails = false;
+  }
+
   ngOnInit() {
     this.submitSearch("angular");
   }

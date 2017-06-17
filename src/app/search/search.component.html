@@ -8,7 +8,7 @@
 <div class="results">
 
   <div class="results__wrapper" *ngIf="user.login && !loading && !showRepoDetails">
-    <app-results [user]="user" [repos]="repos" [getRepoDetails]="getRepoDetails"></app-results>
+    <app-results [user]="user" [repos]="repos" [getRepoDetails]="getRepoDetails" [hideDetails]="hideDetails"></app-results>
     
   </div>
 

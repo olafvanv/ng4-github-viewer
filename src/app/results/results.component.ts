@@ -12,7 +12,7 @@ export class ResultsComponent implements OnInit {
   @Input() loading = false;
   @Input() repos = [];
   @Input() getRepoDetails;
-  @Input() showRepoDetails = false;
+  @Input() hideDetails;
 
   repo = {};
 

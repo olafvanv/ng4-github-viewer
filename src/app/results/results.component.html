@@ -24,20 +24,38 @@
   <div class="row">
 
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 details">
-      <i class="fa fa-arrow-circle-o-left back-btn" aria-hidden="true" title="Go Back"></i>
+      <i class="fa fa-arrow-circle-o-left back-btn" aria-hidden="true" title="Go Back" (click)="hideDetails()"></i>
     </div>
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 details">
-      Name: {{repo.name}}
-      <br /> Open Issues: {{repo.open_issues}}
-      <br /> Total Stars: {{repo.stargazers_count}}
-      <br /> Subscribers: {{repo.subscribers_count}}
-      <br /> Watchers: {{repo.watchers_count}}
+      <div class="title">Repo Details:</div>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td>{{repo.name}}</td>
+        </tr>
+        <tr>
+          <td>Open Issues:</td>
+          <td>{{repo.open_issues}}</td>
+        </tr>
+        <tr>
+          <td>Total Stars:</td>
+          <td>{{repo.stargazers_count}}</td>
+        </tr>
+        <tr>
+          <td>Subscribers</td>
+          <td>{{repo.subscribers_count}}</td>
+        </tr>
+        <tr>
+          <td>Watchers</td>
+          <td>{{repo.watchers_count}}</td>
+        </tr>
+      </table>
     </div>
 
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 details">
-      Contributors:
+      <div class="title">Contributors:</div>
       <div class="contributor" *ngFor="let contributor of contributors">
-        <img src="{{contributor.avatar_url}}"  />
+        <img src="{{contributor.avatar_url}}" />
         <div class="contributor__info">
           Name: {{contributor.login}}
           <br>

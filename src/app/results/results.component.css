@@ -53,16 +53,24 @@
 .results__repos .details{
     text-align:left;
     margin: 20px 0;
+    border-right:1px solid #ededed;
 }
 
 .contributor{
     width:100%;
     display:inline-block;
     margin:5px 0;
+    padding:3px;
+    transition: .3s ease-in-out;
+    backface-visibility: hidden; 
 }
-
 .contributor img{
-    width:50px;
+    width:10%;
     float:left;
     margin-right:10px;
+}
+
+.contributor:hover{
+    background-color:#fafafa;
+    transform:scale(1.02);
 }
