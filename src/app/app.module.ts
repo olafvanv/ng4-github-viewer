@@ -5,22 +5,21 @@ import { RouterModule }   from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
-
-import { GithubService } from './github.service';
 import { RepoComponent } from './repo/repo.component';
 import { ResultsComponent } from './results/results.component';
+
+import { GithubService } from './github.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     RepoComponent,
-    ResultsComponent
+    ResultsComponent,
   ],
   imports: [
     BrowserModule,
-    HttpModule,
-    RouterModule
+    HttpModule
   ],
   providers: [
     GithubService
